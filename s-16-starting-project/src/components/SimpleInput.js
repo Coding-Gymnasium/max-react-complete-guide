@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
@@ -15,6 +16,10 @@ const SimpleInput = (props) => {
 
   const nameInputedChangeHandler = (e) => {
     setEnteredName(e.target.value);
+  };
+
+ const emailInputedChangeHandler = (e) => {
+    setEnteredEmail(e.target.value);
   };
 
   const nameInputBlurHandler = (e) => {
@@ -31,8 +36,8 @@ const SimpleInput = (props) => {
     }
 
     console.log(enteredName);
+    console.log(enteredEmail);
 
-    // nameInputRef.current.value = ''; => NOT BEST PRACTICE, Don't manipute the DOM
     setEnteredName("");
     setEnteredNameTouched(false);
   };
@@ -56,6 +61,16 @@ const SimpleInput = (props) => {
       {nameInputIsInvalid && (
         <small className="error-text">Name must not be empty</small>
       )}
+      <div className={nameInputClasses}>
+        <label htmlFor="email">e-mail</label>
+        <input
+          type="email"
+          id="email"
+          onBlur={nameInputBlurHandler}
+          onChange={emailInputedChangeHandler}
+          value={enteredEmail}
+        />
+      </div>
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
       </div>
