@@ -55,10 +55,10 @@ const SimpleInput = (props) => {
           onBlur={nameBlurHandler}
           value={enteredName}
         />
+        {nameInputHasError && (
+          <small className="error-text">Name must not be empty</small>
+        )}
       </div>
-      {nameInputHasError && (
-        <small className="error-text">Name must not be empty</small>
-      )}
 
       <div className={emailInputClasses}>
         <label htmlFor="email">e-mail</label>
@@ -69,10 +69,10 @@ const SimpleInput = (props) => {
           onBlur={emailBlurHandler}
           value={enteredEmail}
         />
+        {emailInputHasError && (
+          <small className="error-text">Please Enter a Valid Email</small>
+        )}
       </div>
-      {emailInputHasError && (
-        <small className="error-text">Please Enter a Valid Email</small>
-      )}
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
       </div>
