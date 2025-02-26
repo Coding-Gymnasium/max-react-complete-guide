@@ -43,9 +43,10 @@ function App() {
             {CORE_CONCEPTS.map((item) => (
               <li key={item.id}>
                 <CoreConcept
-                  title={item.title}
-                  description={item.description}
-                  image={item.image}
+                  {...item}
+                  // title={item.title}
+                  // description={item.description}
+                  // image={item.image}
                 />
               </li>
             ))}
