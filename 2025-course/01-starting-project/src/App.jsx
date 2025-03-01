@@ -1,11 +1,11 @@
-import { CORE_CONCEPTS } from "./data";
+import { CORE_CONCEPTS, EXAMPLES } from "./data";
 import Header from "./components/header/Header";
 import { CoreConcept } from "./components/coreConcepts/CoreConcept";
 import TabButton from "./components/tabButton/TabButton";
 import { useState } from "react";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("Select a button");
+  const [selectedTopic, setSelectedTopic] = useState("components");
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
     console.log(selectedTopic);
@@ -19,7 +19,7 @@ function App() {
           <h2>Core Concepts</h2>
           <ul>
             {CORE_CONCEPTS.map((item) => (
-              <li key={item.id}>
+              <li key={item.title}>
                 <CoreConcept {...item} />
               </li>
             ))}
@@ -36,7 +36,13 @@ function App() {
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
         </section>
-        {selectedTopic}
+        <div id="tab-content">
+          <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+          <pre>
+            <code>{EXAMPLES[selectedTopic].code}</code>
+          </pre>
+        </div>
       </main>
     </div>
   );
