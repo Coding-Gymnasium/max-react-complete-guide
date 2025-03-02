@@ -36,8 +36,9 @@ function App() {
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
         </section>
-        {!selectedTopic ? <p>Please select a topic.</p> : null}
-        {selectedTopic ? (
+        {!selectedTopic ? (
+          <p>Please select a topic.</p>
+        ) : (
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].description}</p>
@@ -45,7 +46,7 @@ function App() {
               <code>{EXAMPLES[selectedTopic].code}</code>
             </pre>
           </div>
-        ) : null}
+        )}
       </main>
     </div>
   );
