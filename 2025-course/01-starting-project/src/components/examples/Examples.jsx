@@ -1,6 +1,7 @@
 import TabButton from "../tabButton/TabButton";
 import { EXAMPLES } from "../../data";
 import React, { useState } from "react";
+import Section from "../section/Section";
 
 export default function Examples() {
   const [selectedTopic, setSelectedTopic] = useState();
@@ -23,38 +24,37 @@ export default function Examples() {
     );
   }
 
-  return (
+  let content = (
     <>
-      <section id="examples">
-        <h2>Examples</h2>
-        <menu>
-          <TabButton
-            isSelected={selectedTopic === "components"}
-            onSelect={() => handleSelect("components")}
-          >
-            Components
-          </TabButton>
-          <TabButton
-            isSelected={selectedTopic === "jsx"}
-            onSelect={() => handleSelect("jsx")}
-          >
-            JSX
-          </TabButton>
-          <TabButton
-            isSelected={selectedTopic === "props"}
-            onSelect={() => handleSelect("props")}
-          >
-            Props
-          </TabButton>
-          <TabButton
-            isSelected={selectedTopic === "state"}
-            onSelect={() => handleSelect("state")}
-          >
-            State
-          </TabButton>
-        </menu>
-      </section>
+      <menu>
+        <TabButton
+          isSelected={selectedTopic === "components"}
+          onSelect={() => handleSelect("components")}
+        >
+          Components
+        </TabButton>
+        <TabButton
+          isSelected={selectedTopic === "jsx"}
+          onSelect={() => handleSelect("jsx")}
+        >
+          JSX
+        </TabButton>
+        <TabButton
+          isSelected={selectedTopic === "props"}
+          onSelect={() => handleSelect("props")}
+        >
+          Props
+        </TabButton>
+        <TabButton
+          isSelected={selectedTopic === "state"}
+          onSelect={() => handleSelect("state")}
+        >
+          State
+        </TabButton>
+      </menu>
       {tabContent}
     </>
   );
+
+  return <Section id="examples" title="Examples" content={content} />;
 }
