@@ -3,14 +3,17 @@ import Section from "../section/Section";
 import { CoreConcept } from "./CoreConcept";
 
 export function CoreConcepts() {
-  let content = (
-    <ul>
-      {CORE_CONCEPTS.map((item) => (
-        <li key={item.title}>
-          <CoreConcept {...item} />
-        </li>
-      ))}
-    </ul>
+  return (
+    <Section id="core-concepts" title="Core Concepts">
+      <section>
+        <ul>
+          {CORE_CONCEPTS.map((item) => (
+            <li key={item.title}>
+              <CoreConcept {...item} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Section>
   );
-  return <Section id="core-concepts" title="Core Concepts" content={content} />;
 }
