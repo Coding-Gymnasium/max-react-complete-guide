@@ -56,7 +56,7 @@ export default function Examples() {
 
   return (
     <Section id="examples" title="Examples">
-      <Tabs buttons={buttons} ButtonsContainer="menu">
+      <Tabs buttons={buttons}>
         {tabContent}
       </Tabs>
     </Section>
