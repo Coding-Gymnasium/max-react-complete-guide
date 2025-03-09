@@ -3,11 +3,9 @@ import React, { useState } from "react";
 export default function Player({ name, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState("");
-  const [editButtonActive, setEditButtonActive] = useState(false);
 
   function handleEditClick() {
     setIsEditing(!isEditing);
-    setEditButtonActive(!editButtonActive);
   }
   let nameField = (
     <span className="player-name">{playerName ? playerName : name}</span>
@@ -29,9 +27,7 @@ export default function Player({ name, symbol }) {
         {nameField}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleEditClick}>
-        {editButtonActive ? "Save" : "Edit"}
-      </button>
+      <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
     </li>
   );
 }
