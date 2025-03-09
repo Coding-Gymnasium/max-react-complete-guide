@@ -5,11 +5,13 @@ export default function Player({ name, symbol }) {
   const [playerName, setPlayerName] = useState("");
 
   function handleEditClick() {
-    setIsEditing(!isEditing);
+    setIsEditing((editing) => !editing);
   }
+
   let nameField = (
     <span className="player-name">{playerName ? playerName : name}</span>
   );
+
   if (isEditing) {
     nameField = (
       <input
