@@ -5,7 +5,7 @@ export default function Player({ name, symbol }) {
   const [inputName, setInputName] = useState("");
   const [editButtonActive, setEditButtonActive] = useState(false);
 
-  function handleSubmit() {
+  function handleEditClick() {
     setIsEditing(!isEditing);
     setEditButtonActive(!editButtonActive);
   }
@@ -24,7 +24,7 @@ export default function Player({ name, symbol }) {
         )}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleSubmit}>
+      <button onClick={handleEditClick}>
         {editButtonActive ? "Save" : "Edit"}
       </button>
     </li>
