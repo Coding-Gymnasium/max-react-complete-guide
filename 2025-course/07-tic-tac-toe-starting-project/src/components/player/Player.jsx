@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Player({ name, symbol }) {
+export default function Player({ initialName, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState("");
 
@@ -9,7 +9,7 @@ export default function Player({ name, symbol }) {
   }
 
   let nameField = (
-    <span className="player-name">{playerName ? playerName : name}</span>
+    <span className="player-name">{playerName ? playerName : initialName}</span>
   );
 
   if (isEditing) {
